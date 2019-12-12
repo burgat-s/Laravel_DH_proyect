@@ -1,0 +1,379 @@
+/* body alta de productos=====================000 */
+.a{
+background-color: orange;
+margin-bottom: 50px;
+padding:10px;
+
+}
+.b{
+background: orange;
+margin-bottom: 50px;
+padding:10px;
+
+}
+#check{
+  box-sizing: border-box;
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 3px;
+  margin: 3px;
+  padding: 5px;
+}
+
+/* body home================================= */
+/* -----Destacados----- */
+section.destacados{
+  margin-top: 50px;
+  border-top: solid black 5px;
+  border-bottom: solid grey 3px;
+  background: #c1c1c1;
+}
+section div.destacados{
+  font-family: 'Playfair Display', serif;
+  color: black;
+  padding-bottom: 50PX;
+  border-radius: 10px;
+}
+h2.home{
+  font-size: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+h4.home{
+  font-size: 20px;
+  margin-top: 15px;
+}
+div.imagen{
+  display: flex;
+  justify-content: center;
+}
+div.p-2.destacados{
+  font-size: 25px;
+  display: inline-block;
+  background-color:#231038 ;
+  color: white;
+  font-weight: bold;
+}
+img.destacados{
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 150px;
+  border-radius: 10px;
+}
+article.destacados{
+  margin-top: 40px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  transform: scale(1);
+  transition-duration: 0.5s;
+}
+article.destacados:hover{
+  transform: scale(1.15);
+  transition-duration: 0.5s;
+}
+div.articulo-fondo{
+  width: 80%;
+  height: 250px;
+  background: white;
+  margin: auto;
+  /* border: solid black 4px; */
+  border-radius: 5px;
+}
+div.destacados-celu{
+  margin-top: 30px;
+  text-align: center;
+}
+
+/* -----promociones---- */
+section.promociones{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background: #231038;
+  padding-bottom: 40px;
+}
+section div.promociones{
+  font-family: 'Playfair Display', serif;
+  color: WHITE;
+  background: #231038;
+  padding: 10PX;
+  border-radius: 10px;
+}
+div.bd-example{
+  border: solid 3px rgb(0, 0, 0);
+}
+/* -----HOMBRE MUJER---- */
+section.hombre-mujer{
+  margin-top: 50px;
+  padding: 0px;
+}
+section.hombre-mujer a div{
+  margin: 0px;
+}
+section.hombre-mujer a {
+  margin: 0px;
+}
+section.hombre-mujer div{
+  transition-duration: 0.5s;
+}
+section.hombre-mujer div:hover{
+  transform: scale(1.02);
+  transition-duration: 0.5s;
+}
+
+/* body PPU====================================== */
+
+
+/* body carrito================================== */
+
+
+/* body faq======================================== */
+div.faq{
+  background: #c1c1c1;
+margin-top: 20px;
+margin-bottom: 20px;
+color: black;
+padding-bottom: 5px;
+}
+.faq div{
+  border-top: solid 10px white;
+}
+
+
+/* body login====================================0 */
+body.bLogin{
+  background: #716286;
+  margin: 0;
+  padding: 0;
+}
+div #titulologinpage{
+margin: 0px;
+
+padding: 10px;
+}
+div #inforegister {
+  border-radius: 0px;
+  padding: 25px;
+  margin-right: 0;
+}
+div #logininfo {
+  background:  #716286;
+  border-radius: 0px;
+  padding: 50px;
+  margin-right: 0;
+  ;
+}
+label.form-check-label-Recordarme{
+  margin-left: 20px;
+}
+
+
+/* body register======================================== */
+body.bregister{
+  color: black;
+  background: #716286;
+}
+div.inforegiter{
+  margin-top: 0px;
+  background-color: #716286;
+  padding: 25px;
+}
+div.listregister{
+  background-color: #716286;
+  padding:10px;
+}
+img.logoregistro{
+  width: 500px;
+  height:500px;
+  margin-left: 25%;
+  margin-top: 20px;
+}
+span.invalido{
+font-family: 'Playfair Display', serif;
+color: red;
+}
+p.aviso{
+  color: red;
+  font-family: 'Playfair Display', serif;
+}
+
+
+/* footer============================================== */
+footer{
+     background-color: #231038;
+     padding:10px 0px;
+}
+
+.contacto span , .menu span{
+   color: #FFF;
+   font-weight: bold;
+   border-bottom: 1px solid #c7c7c7;
+   padding:10px 0px;
+   display: block;
+   text-transform: uppercase;
+   font-size: 16px;
+   letter-spacing: 3px;
+}
+
+.contacto li a , .menu li a{
+    color:#FFF;
+    letter-spacing: 3px;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.contacto li, .menu li{
+    margin:20px 0px;
+    list-style: none;
+}
+
+.contacto li:hover , .menu li a:hover{
+    color: #ffbf00;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+.contacto .fa{
+    color: #ffbf00;
+    margin-right: 10px;
+    font-size:18px;
+}
+
+.tt-copy
+{
+font-size: 15px;
+line-height: 20px;
+color: #fff;
+background: #51645A;
+padding: 10px 0;
+font-family: 'Open Sans', sans-serif;
+}
+.tt-copy-right {
+text-align: right;
+}
+
+/* header    v2 =========================================*/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-kerning: auto;
+}
+/* html {
+  font-size: 10pt;
+  line-height: 1.4;
+  font-weight: 400;
+  font-family: 'Source Sans Pro', 'Open Sans', Roboto, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Myriad Pro', 'Segoe UI', Myriad, Helvetica, 'Lucida Grande', 'DejaVu Sans Condensed', 'Liberation Sans', 'Nimbus Sans L', Tahoma, Geneva, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+} */
+body {
+  margin: 0px !important;
+  padding: 0px !important;
+  background: #eee;
+}
+div.header{
+  background: #231038;
+  margin: 0px;
+  padding: 0px;
+}
+
+div.naver nav {
+display: flex;
+justify-content: flex-end;
+z-index: 1000;
+}
+
+div.naver nav{
+  padding-left: 80px;
+}
+div.naver nav a {
+  margin-left: 50px;s
+}
+div.naver nav a img{
+height:30px ;
+width: 30px ;
+z-index: 1000;
+margin-bottom: 5px;
+box-sizing: border-box;
+}
+h1.titulo{
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+  display: block;
+  color: white;
+  margin-top: 30px;
+}
+@media( max-width: 768px) {
+  div.titulo{
+    display: block;
+    color: white;
+    margin-top: 30px;
+    text-align: right;
+  }
+  div.media-header{
+    margin-left:  80px !important;
+  }
+}
+
+h2.usuario{
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+  font-size: 20px;
+  display: block;
+  text-align: right;
+  color: white;
+}
+div.logo{
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+}
+
+#logo{
+  width: 100px;
+  margin-top: 10px;
+}
+
+
+
+/* @element html, body and (min-scroll-y: 50vh) {
+
+  header {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    background-image:url(../images/cemento.jpg);
+    box-shadow: rgba(0,0,0,.05) 0 3px 15px;
+    transition: opacity 2s;
+    background: ;
+  }
+} */
+div.card {
+  margin: 15px;
+
+  display: inline-block;
+  float: left;
+}
+div.relojes{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+/* caroooooo */
+
+
+.tenkiuu {
+  font-size: 30px;
+  border-radius:10px !important;
+  border: solid purple 1px;
+}
