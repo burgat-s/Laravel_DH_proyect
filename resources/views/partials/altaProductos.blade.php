@@ -73,17 +73,16 @@
               <label class="col-12" for="color">Seleccione el color predominante</label>
               <select class="col-6" name="Material-correa">
                 <option value=""></option>
-                <option value="">negro</option>
-                <option value="">rojo</option>
-                <option value="">naranja</option>
-                <option value="">rosa</option>
-                <option value="">amarillo</option>
-                <option value="">azul</option>
-                <option value="">violeta</option>
-                <option value="">plateado</option>
-                <option value="">rose</option>
-                <option value="">dorado</option>
-                <option value="">verde</option>
+                <option value="black">negro</option>
+                <option value="red">rojo</option>
+                <option value="orange">naranja</option>
+                <option value="pink">rosa</option>
+                <option value="yellow">amarillo</option>
+                <option value="blue">azul</option>
+                <option value="violet">violeta</option>
+                <option value="silver">plateado</option>
+                <option value="golden">dorado</option>
+                <option value="green">verde</option>
               </select>
               <label class="col-12" for="descripcion">Incluya una descripción del producto</label>
               <textarea name="descripcion" rows="8" cols="80" name="desc" placeholder="Incluye una desripcion del reloj"></textarea>

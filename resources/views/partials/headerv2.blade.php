@@ -9,7 +9,7 @@
       </div>
       <div class="row col-4 media-header">
         <div class="d-none d-md-inline-block col-md-12">
-          <h2 class="usuario"> @if (Route::has('login')) @auth Estas logueado!  :) -  <a href="/logout"> Desloguarse </a> @else  Esta navegando como invitado!! @endauth  @endif </h2>
+          <h2 style="text-transform: capitalize" class="usuario"> @if (Route::has('login')) @auth Bienvenido  {{$usuario->name}} !!  <a href="/logout"> Desloguarse </a> @else  Esta navegando como invitado!! @endauth  @endif </h2>
         @if (Route::has('login')) @auth @else
 
           <h2  class="usuario">  <a href="{{ route('login') }}"> Logueate! </a> </h2>
@@ -22,8 +22,11 @@
               <a  @if (Route::has('login')) @auth href="/usuario"  @else  href="{{ route('login') }}" @endauth  @endif> <img href="#" src="/images/usuario.png" alt="USER"></a>
               <a href="/carro"> <img href="#" src="/images/carrito.png" alt="CART"></a>
               <a href="/relojes"> <img href="#" src="/images/buscar.png" alt="SERCH"></a>
-              <a href="/altaProductos"> <img href="#" src="/images/up.png" alt="SERCH"></a>
-              <a href="#"> <img href="#" src="/images/down.png" alt="SERCH"></a>
+              @if ($usuario->user_tipe==1)
+                <a href="/altaProductos"> <img href="#" src="/images/up.png" alt="SERCH"></a>
+                <a href="/bajaProductos"> <img href="#" src="/images/down.png" alt="SERCH"></a>
+              @endif
+
             @endauth  @endif
 
           </nav>
