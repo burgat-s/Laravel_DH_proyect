@@ -1,5 +1,12 @@
 
 <header>
+  @php
+  use App\User;
+
+  $usuario = Auth::user() ;
+
+  @endphp
+
     <div class="row header container-fluid">
       <div class="d-none d-md-inline-block col-md-2 logo">
         <a href="/home" class="logo">  <img id="logo" src="/images/logo-sin-fondo.png" alt=""></a>
@@ -9,12 +16,10 @@
       </div>
       <div class="row col-4 media-header">
         <div class="d-none d-md-inline-block col-md-12">
-          <h2 style="text-transform: capitalize" class="usuario"> @if (Route::has('login')) @auth Bienvenido  {{$usuario->name}} !!  <a href="/logout"> Desloguarse </a> @else  Esta navegando como invitado!! @endauth  @endif </h2>
-        @if (Route::has('login')) @auth @else
-
-          <h2  class="usuario">  <a href="{{ route('login') }}"> Logueate! </a> </h2>
-        @endauth  @endif
-
+          <h2 style="text-transform: capitalize" class="usuario"> @if (Route::has('login')) @auth Bienvenido  {{$usuario->name}} !!   <a href="/logout"> Desloguarse </a><img style=" height:50px; " src="/storage/{{$usuario->avatar }}" alt="avatar"> @else  Esta navegando como invitado!! @endauth  @endif </h2>
+          @if (Route::has('login')) @auth @else
+            <h2  class="usuario">  <a href="{{ route('login') }}"> Logueate! </a> </h2>
+          @endauth  @endif
         </div>
         <div class=" col-md-12 naver text-right titulo">
           <nav>
