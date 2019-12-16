@@ -95,8 +95,8 @@
                 <option value="green">verde</option>
               </select>
 
-              <label class="col-12" for="description">Incluya una descripción del producto</label>
-              <textarea name="descripcion" rows="8" cols="80" name="description" placeholder="Incluye una desripcion del reloj"></textarea>
+              <label class="col-12"  for="description">Incluya una descripción del producto</label>
+              <textarea name="descripcion" rows="8" cols="80" style="width:100%;" name="description" placeholder="Incluye una desripcion del reloj"></textarea>
 
             </div>
 

@@ -49,9 +49,8 @@ Route::get('/logout', function()
     return view('partials.relojes');
 
  });
- Route::get('/altaProductos', function () {
-   return view('partials.altaProductos');
-});
+
+Route::get('/altaProductos', 'Watchcontroller@create');
 
 Route::post('/altaProductos', function () {
   return view('partials.altaProductos');

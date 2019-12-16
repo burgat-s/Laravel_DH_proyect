@@ -24,7 +24,7 @@ class WatchController extends Controller
      */
     public function create()
     {
-        //
+       return view('Watches.create');
     }
 
     /**
