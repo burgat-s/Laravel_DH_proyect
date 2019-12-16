@@ -17,15 +17,20 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/logout', function()
+	{
+		Auth::logout();
+	Session::flush();
+		return Redirect::to('/home');
+	});
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/preguntas_frecuentes', function () {
     return view('partials.faq');
 });
-//  Route::get('/register', function () {
-//     return view('auth/passwords/register');
-// });
-  Route::get('/carro', function () {
+
+Route::get('/carro', function () {
     return view('partials.carro');
  });
 
@@ -47,6 +52,11 @@ Route::get('/logout', function()
  Route::get('/altaProductos', function () {
    return view('partials.altaProductos');
 });
+
+Route::post('/altaProductos', function () {
+  return view('partials.altaProductos');
+});
+
 Route::get('/usuario', function () {
   return view('partials.PPU');
 });
