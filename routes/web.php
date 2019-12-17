@@ -51,10 +51,8 @@ Route::get('/logout', function()
  });
 
 Route::get('/altaProductos', 'Watchcontroller@create');
+Route::post('/altaProductos', 'Watchcontroller@store');
 
-Route::post('/altaProductos', function () {
-  return view('partials.altaProductos');
-});
 
 Route::get('/usuario', function () {
   return view('partials.PPU');

@@ -35,7 +35,32 @@ class WatchController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+
+        $ruta = $request->file("image")->store("public");
+        $nombreArchivo = basename($ruta);
+
+
+        $nuevoReloj = new Watch;
+        $nuevoReloj->brand = $request->brand;
+        $nuevoReloj->price = $request->price;
+        $nuevoReloj->stock = $request->stock;
+        $nuevoReloj->model = $request->model;
+        $nuevoReloj->description = $request->description;
+        $nuevoReloj->discount = $request->discount;
+        $nuevoReloj->featured = $request->featured;
+    
+        $nuevoReloj->gender = $request->gender;
+        $nuevoReloj->material = $request->material;
+        $nuevoReloj->band = $request->band;
+        $nuevoReloj->submersible = $request->submersible;
+        $nuevoReloj->color = $request->color;
+        $nuevoReloj->image = $nombreArchivo;
+
+        $nuevoReloj->save();
+
+
     }
 
     /**

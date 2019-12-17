@@ -8,7 +8,9 @@
 @section('content')
     <div class="container-fluid">
       <h2 class="home col-12 text-center ">Carga de productos</h2>
-      <form class="" action="alta-de.-productos.php" method="post" enctype="multipart/form-data">
+      <form class="" action="/altaProductos" method="post" enctype="multipart/form-data">
+          @csrf
+
         <div class="col-12 col-md-6">
           <div class="row">
             <div class="col-10 offset-1 a">
@@ -40,10 +42,10 @@
                 <option value="W">Mujer</option>
               </select>
 
-              <label class="col-12" for="discont">Descuento</label>
+              <label class="col-12" for="discount">Descuento</label>
               <select class="" name="discount">
                 <?php $x=0; while($x<=100){ ?>
-                <option value=""><?php echo $x;?></option>
+                <option value="{{$x}}"><?php echo $x;?></option>
                 <?php $x=$x+5;}  ?>
               </select>
 
@@ -77,8 +79,8 @@
                 ue="c-m">Cuero Blanco</option>
               </select>
 
-              <label class="col-11 inline-block" for="sumersible">Sumergible?</label>
-              <input class="col-1 inline-block" type="checkbox" name="sumersible">
+              <label class="col-11 inline-block" for="submersible">Sumergible?</label>
+              <input class="col-1 inline-block" type="checkbox" name="submersible">
 
               <label class="col-12" for="color">Seleccione el color predominante</label>
               <select class="col-6" name="color">
@@ -96,7 +98,7 @@
               </select>
 
               <label class="col-12"  for="description">Incluya una descripción del producto</label>
-              <textarea name="descripcion" rows="8" cols="80" style="width:100%;" name="description" placeholder="Incluye una desripcion del reloj"></textarea>
+              <textarea name="description" rows="8" cols="80" style="width:100%;" name="description" placeholder="Incluye una desripcion del reloj"></textarea>
 
             </div>
 
