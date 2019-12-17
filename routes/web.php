@@ -27,7 +27,7 @@ Route::get('/logout', function()
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/preguntas_frecuentes', function () {
-    return view('partials.faq');
+    return view('static.faq');
 });
 
 Route::get('/carro', function () {
@@ -52,6 +52,14 @@ Route::get('/logout', function()
 
 Route::get('/altaProductos', 'Watchcontroller@create');
 Route::post('/altaProductos', 'Watchcontroller@store');
+
+Route::get('/editarProductos/{algo}', 'Watchcontroller@edit');
+Route::post('/editarProductos/{algo}', 'Watchcontroller@update');
+
+Route::get('/listarProductos', 'Watchcontroller@index');
+
+Route::get('/eliminarProductos/{algo}', 'Watchcontroller@destroy');
+
 
 
 Route::get('/usuario', function () {

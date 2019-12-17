@@ -29,7 +29,8 @@
               <a href="/relojes"> <img href="#" src="/images/buscar.png" alt="SERCH"></a>
               @if ($usuario->user_tipe==1)
                 <a href="/altaProductos"> <img href="#" src="/images/up.png" alt="SERCH"></a>
-                <a href="/bajaProductos"> <img href="#" src="/images/down.png" alt="SERCH"></a>
+                {{-- <a href="/editarProductos"> <img href="#" src="/images/editar.png" alt="SERCH"></a> --}}
+                <a href="/listarProductos"> <img style="Display: inline-block;" href="#" src="/images/editar.png" alt="SERCH"> </a>
               @endif
 
             @endauth  @endif

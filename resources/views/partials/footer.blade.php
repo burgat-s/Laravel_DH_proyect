@@ -1,7 +1,3 @@
-{{-- @extends('plantilla') --}}
-
-{{-- @section('footer') --}}
-
 <head>
 
 <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -31,7 +27,7 @@
                         <a href="/home">Home</a>
                       </li>
 
-  
+
                       <li>
                          <a href="/preguntas_frecuentes">Preguntas Frecuentes </a>
                       </li>
