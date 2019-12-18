@@ -3,8 +3,6 @@ use App\User;
 
 $usuario = Auth::user() ;
 
-// dd($usuario);
-
 
 @endphp
 

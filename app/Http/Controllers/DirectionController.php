@@ -24,7 +24,7 @@ class DirectionController extends Controller
      */
     public function create()
     {
-        //
+      return view('Directions.create');
     }
 
     /**
@@ -35,7 +35,33 @@ class DirectionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+          $this->validate($request, [
+            "provincia" =>  "required|string",
+            "localidad" => "required|string|min:3",
+            "barrio" => "required|string|min:3",
+            "calle" => "required|string|min:2",
+            "numero" => "numeric",
+            "cp" => "numeric",
+
+          ]);
+
+          $newDirection = new Direction;
+          $newDirection->provincia = $request->provincia;
+          $newDirection->localidad = $request->localidad;
+          $newDirection->barrio = $request->barrio;
+          $newDirection->calle = $request->calle;
+          $newDirection->numero = $request->numero;
+          $newDirection->cp = $request->cp;
+          $newDirection->user_id = $request->user_id;
+
+
+
+          $newDirection->save();
+
+          return redirect("/usuario");
+
+
     }
 
     /**
@@ -78,8 +104,16 @@ class DirectionController extends Controller
      * @param  \App\Direction  $direction
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Direction $direction)
-    {
+
+       public function destroy($id)
+      {
+          $direccionDesactivado = Direction::find($id);
+          $direccionDesactivado->estado = 0;
+
+          $direccionDesactivado->save();
+
+        return redirect("/usuario");
+      }
         //
-    }
+
 }

@@ -1,5 +1,3 @@
-{{-- @extends('/partials/header')
-@extends('/partials/footer') --}}
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">

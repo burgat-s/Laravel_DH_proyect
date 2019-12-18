@@ -66,7 +66,7 @@
           <span style="color:red;">{{$errors->first('discount')}}</span>
 
           <label class="col-11 inline-block" for="featured">Promosionado?</label>
-          <input class="col-1 inline-block" type="checkbox"  name="featured" @if ($reloj->featured) checked @endif value="{{$reloj->featured}}"  >
+          <input class="col-1 inline-block" type="checkbox"  name="featured" @if ($reloj->featured) checked @endif   >
           <span style="color:red;">{{$errors->first('featured')}}</span>
 
         </div>

@@ -13,55 +13,42 @@
 
 Route::get('/', function () {
     return view('welcome');
-})->name('wellcome');
+})->name('wellcome')->middleware("userdeleted");
 
 Auth::routes();
 
-Route::get('/logout', function()
-	{
-		Auth::logout();
-	Session::flush();
-		return Redirect::to('/home');
-	});
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware("userdeleted");
 
 Route::get('/preguntas_frecuentes', function () {
     return view('static.faq');
 });
 
 Route::get('/carro', function () {
-    return view('partials.carro');
+    return view('Carts.carro');
  });
 
  Route::get('/relojes', function () {
-   return view('partials.relojes');
+   return view('Watches.showRoom');
 });
 
-Route::get('/logout', function()
-	{
-		Auth::logout();
-	Session::flush();
-		return Redirect::to('/home');
-	});
+Route::get('/logout', 'UserController@loguot');
 
-  Route::get('/relojes', function () {
-    return view('partials.relojes');
 
- });
-
-Route::get('/altaProductos', 'Watchcontroller@create');
+Route::get('/altaProductos', 'Watchcontroller@create')->middleware("validaradmin");
 Route::post('/altaProductos', 'Watchcontroller@store');
 
-Route::get('/editarProductos/{algo}', 'Watchcontroller@edit');
+Route::get('/editarProductos/{algo}', 'Watchcontroller@edit')->middleware("validaradmin");
 Route::post('/editarProductos/{algo}', 'Watchcontroller@update');
 
-Route::get('/listarProductos', 'Watchcontroller@index');
+Route::get('/listarProductos', 'Watchcontroller@index')->middleware("validaradmin");
 
-Route::get('/eliminarProductos/{algo}', 'Watchcontroller@destroy');
+Route::get('/eliminarProductos/{algo}', 'Watchcontroller@destroy')->middleware("validaradmin");
 
+Route::get('/usuario', 'UserController@view');
+Route::get('/usuario/destroy/{algo}', 'UserController@destroy');
+Route::get('/usuario/edit', 'UserController@edit');
 
+Route::get('/direccion/create', 'DirectionController@create');
+Route::post('/direccion/create', 'DirectionController@store');
 
-Route::get('/usuario', function () {
-  return view('partials.PPU');
-});
+Route::get('/direccion/destroy/{algo}', 'DirectionController@destroy');

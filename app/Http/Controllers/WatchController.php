@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Watch;
 use Illuminate\Http\Request;
+use App\User;
+
+
 
 class WatchController extends Controller
 {
@@ -14,10 +17,15 @@ class WatchController extends Controller
      */
     public function index()
     {
-      $relojes = Watch::all()->where("state"="1");
+
+      $relojes = Watch::where('state','=','1')->paginate(3);
       $vac = compact('relojes');
 
+
       return view('Watches.index',$vac);
+
+
+
     }
 
     /**
@@ -153,7 +161,7 @@ class WatchController extends Controller
 
       $relojEditado->save();
 
-      return redirect("/altaProductos");
+      return redirect("/listarProductos");
     }
     /**
      * Remove the specified resource from storage.

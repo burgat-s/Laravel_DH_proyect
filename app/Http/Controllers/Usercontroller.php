@@ -4,6 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
+use Session;
+use Redirect;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class Usercontroller extends Controller
 {
@@ -12,6 +20,15 @@ class Usercontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+public function view(){
+
+   return view('Users.PPU');
+}
+
+
+
+
     public function index()
     {
         //
@@ -55,9 +72,9 @@ class Usercontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        return view('Users.edit');
     }
 
     /**
@@ -78,8 +95,28 @@ class Usercontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
+     public function loguot()
+     {
+       Auth::logout();
+       Session::flush();
+       return Redirect::to('/home');
+     }
+
+
+
+
+
+
     public function destroy($id)
     {
-        //
+      $UsuarioDesactivado = User::find($id);
+      $UsuarioDesactivado->state = 0;
+
+      $UsuarioDesactivado->save();
+      Auth::logout();
+      Session::flush();
+      return Redirect::to('/home');
     }
 }

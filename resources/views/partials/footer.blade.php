@@ -16,7 +16,7 @@
 
             <div class="col-md-4 col-sm-6 col-xs-12">
               <a href="/home">
-                <img class="logo" src="images/logo-sin-fondo.png" style="width:250px;" alt="logo">
+                <img class="logo" src="{{ asset('images/logo-sin-fondo.png') }}" style="width:250px;" alt="logo">
               </a>
             </div>
 
