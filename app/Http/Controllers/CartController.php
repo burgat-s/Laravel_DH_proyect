@@ -43,21 +43,67 @@ class CartController extends Controller
      */
     public function store($idReloj, $idUsuario)
       {
-      $nuevoItem = new Cart;
+        $cartReloj = Cart::where('watch_id','=',"$idReloj")->get();
+        $reloj = Watch::find($idReloj);
+        $usuario = User::find($idUsuario);
 
-      $reloj = Watch::find($idReloj);
-      $usuario = User::find($idUsuario);
+        // dd($cartReloj[0]->quantity);
+
+        if (count($cartReloj)==1) {
+          $cartReloj[0]->quantity = $cartReloj[0]->quantity + 1;
+
+          $cartReloj[0]->save();
+        }else{
+          $nuevoItem = new Cart;
+          $nuevoItem->quantity = 1;
+          $nuevoItem->user_id = "$usuario->id";
+          $nuevoItem->watch_id = "$reloj->id";
+
+          $nuevoItem->save();
+        }
+
+        return redirect("/relojes");
+    }
 
 
-      $nuevoItem->user_id = "$usuario->id";
-      $nuevoItem->watch_id = "$reloj->id";
-      $nuevoItem->quantity = 1;
+    public function agregarcarrito($idReloj, $idUsuario)
+      {
+        $cartReloj = Cart::where('watch_id','=',"$idReloj")->get();
+        $reloj = Watch::find($idReloj);
+        $usuario = User::find($idUsuario);
 
-      $nuevoItem->save();
+        // dd($cartReloj[0]->quantity);
 
-      return redirect("/relojes");
+        if (count($cartReloj)==1) {
+          $cartReloj[0]->quantity = $cartReloj[0]->quantity + 1;
 
+          $cartReloj[0]->save();
+        }else{
+          $nuevoItem = new Cart;
+          $nuevoItem->quantity = 1;
+          $nuevoItem->user_id = "$usuario->id";
+          $nuevoItem->watch_id = "$reloj->id";
 
+          $nuevoItem->save();
+        }
+
+        return redirect("/carro");
+    }
+    public function sacarcarrito($idReloj, $idUsuario)
+      {
+        $cartReloj = Cart::where('watch_id','=',"$idReloj")->get();
+
+        if( ($cartReloj[0]->quantity)>1) {
+          $cartReloj[0]->quantity = $cartReloj[0]->quantity - 1;
+
+          $cartReloj[0]->save();
+        }else{
+
+        Cart::where('watch_id','=',"$idReloj")->delete();
+
+        }
+
+        return redirect("/carro");
     }
 
     /**

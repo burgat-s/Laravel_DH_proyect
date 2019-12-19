@@ -8,6 +8,7 @@
 
 @php
 use App\Watch;
+use App\User;
 
 $total=0;
 @endphp
@@ -24,16 +25,19 @@ $total=0;
               <thead>
                 <tr>
                   <th scope="col" class="border-0 bg-light">
-                    <div class="p-2 px-3 text-uppercase">Product</div>
+                    <div class="p-2 px-3 text-uppercase">Reloj</div>
                   </th>
                   <th scope="col" class="border-0 bg-light">
-                    <div class="py-2 text-uppercase">Price</div>
+                    <div class="py-2 text-uppercase">Precio</div>
                   </th>
                   <th scope="col" class="border-0 bg-light">
-                    <div class="py-2 text-uppercase">Quantity</div>
+                    <div class="py-2 text-uppercase">Cantidad</div>
                   </th>
                   <th scope="col" class="border-0 bg-light">
-                    <div class="py-2 text-uppercase">Remove</div>
+                    <div class="py-2 text-uppercase">Descuento</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Eliminar</div>
                   </th>
                 </tr>
               </thead>
@@ -42,7 +46,12 @@ $total=0;
   $fantasia = new Watch ();
   $reloj = $fantasia->search("$cart->watch_id");
   // dd($reloj[0]->brand)
-  $total= $total + (($reloj[0]->price)*($reloj[0]->discount)/100)
+  $total= $total + ( ($reloj[0]->price) * ($reloj[0]->discount != 0 ? $reloj[0]->discount/100 : 1) * ($cart->quantity));
+
+
+
+
+  $usuario = Auth::user() ;
 
 @endphp
 
@@ -57,7 +66,14 @@ $total=0;
         </div>
       </th>
       <td class="border-0 align-middle"><strong>${{$reloj[0]->price}}</strong></td>
-      <td class="border-0 align-middle"><strong>{{$cart->quantity}}</strong></td>
+      <td class="border-0 align-middle">
+        <a  href="/carrito/agregarcarrito/{{$reloj[0]->id}}/{{$usuario->id}}" style="margin:8px; "  type="button" class=" inline-block center-block d-inline p-2 bg-warning text-white">+</a>
+
+        <strong>{{$cart->quantity}}</strong>
+
+        <a href="/carrito/sacarcarrito/{{$reloj[0]->id}}/{{$usuario->id}}" style="margin:8px; "  type="button" class=" inline-block center-block d-inline p-2 bg-warning text-white">-</a>
+      </td>
+      <td class="border-0 align-middle"><strong>{{$reloj[0]->discount}}%</strong></td>
       <td class="border-0 align-middle"><a href="/carro/removerItem/{{$reloj[0]->id}}" class="text-dark"><i class="fa fa-trash"></i></a></td>
     </tr>
     <tr>
@@ -87,7 +103,7 @@ $total=0;
             <p class="font-italic mb-4">Recuerda, los envios de nuestros relojes son gratuitos !!! </p>
             <ul class="list-unstyled mb-4">
               <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
-                <h5 class="font-weight-bold">{{$total}}</h5>
+                <h5 class="font-weight-bold">$ {{$total}}</h5>
               </li>
             </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Comprar</a>
           </div>
