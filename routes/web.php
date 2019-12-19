@@ -29,8 +29,8 @@ Route::get('/relojes', 'Watchcontroller@show');
 Route::get('/altaProductos', 'Watchcontroller@create')->middleware("validaradmin");
 Route::post('/altaProductos', 'Watchcontroller@store');
 
-Route::get('/editarProductos/{algo}', 'Watchcontroller@edit')->middleware("validaradmin");
-Route::post('/editarProductos/{algo}', 'Watchcontroller@update');
+Route::get('/editarProductos/{algo}', 'Watchcontroller@edit')->middleware("validaradmin")->middleware("userlog");
+Route::post('/editarProductos/{algo}', 'Watchcontroller@update')->middleware("userlog");
 
 Route::get('/listarProductos', 'Watchcontroller@index')->middleware("validaradmin");
 Route::get('/reloj/mujeres', 'Watchcontroller@mujeres')->middleware("validaradmin");
@@ -38,19 +38,19 @@ Route::get('/reloj/hombres', 'Watchcontroller@hombres')->middleware("validaradmi
 Route::get('/eliminarProductos/{algo}', 'Watchcontroller@destroy')->middleware("validaradmin");
 
 Route::get('/usuario', 'UserController@view');
-Route::get('/usuario/destroy/{algo}', 'UserController@destroy');
-Route::get('/usuario/edit', 'UserController@edit');
+Route::get('/usuario/destroy/{algo}', 'UserController@destroy')->middleware("userlog");
+Route::get('/usuario/edit', 'UserController@edit')->middleware("userlog");
 
-Route::get('/direccion/create', 'DirectionController@create');
-Route::post('/direccion/create', 'DirectionController@store');
+Route::get('/direccion/create', 'DirectionController@create')->middleware("userlog");
+Route::post('/direccion/create', 'DirectionController@store')->middleware("userlog");
 
-Route::get('/direccion/destroy/{algo}', 'DirectionController@destroy');
+Route::get('/direccion/destroy/{algo}', 'DirectionController@destroy')->middleware("userlog");
 
 
-Route::get('/carrito/agregar/{algo}/{algo2}', 'CartController@store');
-Route::get('/carrito/agregarcarrito/{algo}/{algo2}', 'CartController@agregarcarrito');
-Route::get('/carrito/sacarcarrito/{algo}/{algo2}', 'CartController@sacarcarrito');
-Route::get('/carro','CartController@show' );
-Route::get('/carro/removerItem/{algo}','CartController@borraritem' );
+Route::get('/carrito/agregar/{algo}/{algo2}', 'CartController@store')->middleware("userlog");
+Route::get('/carrito/agregarcarrito/{algo}/{algo2}', 'CartController@agregarcarrito')->middleware("userlog");
+Route::get('/carrito/sacarcarrito/{algo}/{algo2}', 'CartController@sacarcarrito')->middleware("userlog");
+Route::get('/carro','CartController@show' )->middleware("userlog");
+Route::get('/carro/removerItem/{algo}','CartController@borraritem' )->middleware("userlog");
 
 Route::get('/venta','SaleController@show' );

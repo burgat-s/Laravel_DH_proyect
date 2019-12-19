@@ -18,7 +18,7 @@
   <div class="col-10 filtrado">
 
     @forelse ($relojes as $reloj )
-      <div class="card" style="width: 18rem;">
+      <div class="card shadow" style="width: 18rem;">
         <img src="{{ asset("/storage/relojes/$reloj->image") }}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{$reloj->model}}</h5>
