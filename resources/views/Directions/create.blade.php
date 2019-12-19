@@ -21,8 +21,8 @@
         {{-- APIIIII --}}
         <label  class="" for="provincia">Seleccione la Provincia:</label>
 
-        <select class="form-control form-control-sm" name="provincia">
-          <option value="nar">naranja</option>
+        <select id="provincias" class="form-control form-control-sm" name="provincia">
+
         </select>
 
         <label class="" for="localidad">Localidad:</label>
@@ -54,6 +54,9 @@
 
   </div>
 </div>
+
+<script type="text/javascript" src="{{ asset('/js/Directions/provincias.js') }}"></script>
+
 
 
 @endsection

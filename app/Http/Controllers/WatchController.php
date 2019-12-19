@@ -18,7 +18,7 @@ class WatchController extends Controller
     public function index()
     {
 
-      $relojes = Watch::where('state','=','1')->paginate(3);
+      $relojes = Watch::where('state','=','1')->paginate(8);
       $vac = compact('relojes');
 
 
@@ -95,9 +95,16 @@ class WatchController extends Controller
      * @param  \App\Watch  $watch
      * @return \Illuminate\Http\Response
      */
-    public function show(Watch $watch)
+    public function show()
     {
-        //
+
+      $relojes = Watch::where('state','=','1')->paginate(8);
+      $vac = compact('relojes');
+
+
+      return view('Watches.showRoom',$vac);
+
+
     }
 
     /**

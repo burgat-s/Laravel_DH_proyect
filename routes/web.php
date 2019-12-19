@@ -15,9 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 })->name('wellcome')->middleware("userdeleted");
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home')->middleware("userdeleted");
 
 Route::get('/preguntas_frecuentes', function () {
     return view('static.faq');
@@ -27,11 +24,14 @@ Route::get('/carro', function () {
     return view('Carts.carro');
  });
 
- Route::get('/relojes', function () {
-   return view('Watches.showRoom');
-});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home')->middleware("userdeleted");
+
 
 Route::get('/logout', 'UserController@loguot');
+
+Route::get('/relojes', 'Watchcontroller@show');
 
 
 Route::get('/altaProductos', 'Watchcontroller@create')->middleware("validaradmin");
