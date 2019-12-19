@@ -11,23 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('wellcome')->middleware("userdeleted");
+Route::get('/','HomeController@index')->middleware("userdeleted");
+// function () {return view('homer');});
+
+Route::get('/home', 'HomerController@destacados')->name('wellcome')->middleware("userdeleted");
 
 
-Route::get('/preguntas_frecuentes', function () {
-    return view('static.faq');
-});
-
-
-
-
+Route::get('/preguntas_frecuentes', function () { return view('static.faq');});
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home')->middleware("userdeleted");
-
 
 Route::get('/logout', 'UserController@loguot');
 
@@ -41,7 +33,8 @@ Route::get('/editarProductos/{algo}', 'Watchcontroller@edit')->middleware("valid
 Route::post('/editarProductos/{algo}', 'Watchcontroller@update');
 
 Route::get('/listarProductos', 'Watchcontroller@index')->middleware("validaradmin");
-
+Route::get('/reloj/mujeres', 'Watchcontroller@mujeres')->middleware("validaradmin");
+Route::get('/reloj/hombres', 'Watchcontroller@hombres')->middleware("validaradmin");
 Route::get('/eliminarProductos/{algo}', 'Watchcontroller@destroy')->middleware("validaradmin");
 
 Route::get('/usuario', 'UserController@view');
@@ -59,3 +52,5 @@ Route::get('/carrito/agregarcarrito/{algo}/{algo2}', 'CartController@agregarcarr
 Route::get('/carrito/sacarcarrito/{algo}/{algo2}', 'CartController@sacarcarrito');
 Route::get('/carro','CartController@show' );
 Route::get('/carro/removerItem/{algo}','CartController@borraritem' );
+
+Route::get('/venta','SaleController@show' );

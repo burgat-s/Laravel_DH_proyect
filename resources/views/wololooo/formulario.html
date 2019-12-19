@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+</head>
+<body>
+    <form action="">
+        Usuario:
+        <input type="text" name="username" id="nombre">
+        <span style="color:red;" id="errorNombre"></span>
+        <br>
+        Contraseña:
+        <input type="text" name="password">
+        <br>
+        En que decada naciste:
+        <select class="decada" name="decada">
+            <option value="1970">70</option>
+            <option value="1980">80</option>
+            <option value="1990">90</option>
+            <option value="2000">00</option>
+        </select>
+        <button type="button">Registrarme</button>
+    </form>
+    <script>
+        function validarNombre(){
+            console.log("valido");
+            var nombre = document.querySelector("input#nombre");
+            if(nombre.value == ""){
+                var spanNombre = document.querySelector("span#errorNombre");
+                spanNombre.innerHTML = "El nombre es obligatorio.";
+            }else{
+                var spanNombre = document.querySelector("span#errorNombre");
+                spanNombre.innerHTML = "";
+            }
+        }
+        var enviar = document.querySelector("button");
+        enviar.addEventListener("click",function(){
+            validarNombre();
+        });
+
+    </script>
+</body>
+</html>

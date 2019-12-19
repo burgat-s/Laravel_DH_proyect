@@ -105,7 +105,7 @@ $total=0;
               <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
                 <h5 class="font-weight-bold">$ {{$total}}</h5>
               </li>
-            </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Comprar</a>
+            </ul><a href="/venta" class="btn btn-dark rounded-pill py-2 btn-block">Comprar</a>
           </div>
         </div>
       </div>

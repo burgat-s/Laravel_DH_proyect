@@ -97,14 +97,25 @@ class WatchController extends Controller
      */
     public function show()
     {
-
       $relojes = Watch::where('state','=','1')->paginate(8);
       $vac = compact('relojes');
 
 
       return view('Watches.showRoom',$vac);
+    }
+    public function hombres()
+    {
+      $relojes = Watch::where('gender','=','M')->paginate(8);
+      $vac = compact('relojes');
 
+      return view('Watches.showRoom',$vac);
+    }
+    public function mujeres()
+    {
+      $relojes = Watch::where('gender','=','W')->paginate(8);
+      $vac = compact('relojes');
 
+      return view('Watches.showRoom',$vac);
     }
 
     /**

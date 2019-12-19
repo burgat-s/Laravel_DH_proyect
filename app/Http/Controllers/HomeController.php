@@ -2,27 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
+// use Redirect;
+use App\Watch;
+
+// use App\Http\Controllers\Controller;
+// use Illuminate\Foundation\Auth\AuthenticatesUsers;
+// use Illuminate\Support\Facades\Hash;
+// use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
-        return view('welcome');
+      $destacados = Watch::where("featured","on")->paginate(3);
+      $vac = compact('destacados');
+
+      return view('homer',$vac);
     }
+
 }

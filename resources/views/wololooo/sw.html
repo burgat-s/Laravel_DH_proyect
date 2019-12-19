@@ -1,0 +1,36 @@
+<body>
+    <h1>Elegí un personaje</h1>
+</body>
+<script>
+    var personaje = "";
+fetch("https://swapi.co/api/people/")
+.then(function(rta){
+    return rta.json();
+})
+.then(function(datos){
+    console.log("recibi")
+    for(var i=0; i < datos.results.length; i++){
+        document.body.innerHTML += "<a href='#' onclick='cambiarTitulo(\""+datos.results[i].url+"\")'>"+datos.results[i].name+"</a><br>";
+    }
+})
+.catch(function(error){
+    console.log(error);
+});
+
+function cambiarTitulo(url){
+    //personaje = name;
+    fetch(url)
+    .then(function(rta){
+        return rta.json();
+    })
+    .then(function(datos){
+        console.log(datos);
+        document.querySelector('h1').innerHTML = datos.name;
+    })
+    .catch(function(error){
+        console.log(error);
+    });
+    
+    
+}
+</script>

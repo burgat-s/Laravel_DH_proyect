@@ -15,7 +15,7 @@
 @forelse ($relojes as $reloj)
 
   @if ($reloj->state==1)
-    <div class="card" style="width: 80%;">
+    <div class="card" style="width: 85%;">
 
       <div class="card-body">
         <img style="width:150px; height:150px;" src="storage/relojes/{{$reloj->image}}" class="card-img-top" alt="...">

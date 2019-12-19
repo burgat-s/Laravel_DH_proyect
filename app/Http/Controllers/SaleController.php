@@ -44,9 +44,9 @@ class SaleController extends Controller
      * @param  \App\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function show(Sale $sale)
+    public function show()
     {
-        //
+      return view('Users.edit');
     }
 
     /**

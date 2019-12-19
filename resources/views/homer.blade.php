@@ -7,68 +7,67 @@
 @endsection
 
 @section('content')
+  @php
+  use App\User;
+
+
+  $usuario = Auth::user() ;
+  @endphp
     <div class="container-fluid">
+
+
       <section class="row destacados">
         <div class="col-12 col-md-10 offset-md-1 destacados">
-          <div class="row">
+          <div class="row d-flex flex-row justify-content-center">
             <h2 class="home col-12 text-center destacados">destacados</h2>
-            <article class="d-none d-md-inline-block col-md-4 destacados">
-              <a href="#">
-              <div class="row">
-                <div class="articulo-fondo border">
-                  <div class="col-6 col-md-12 imagen">
-                    <img class="destacados" src="images/img-auxiliar1.webp" alt="img-reloj">
-                  </div>
-                  <div class="col-6 col-md-12">
-                    <h4 class="home col-12 text-center">TISSOT</h4>
-                  </div>
-                </div>
-              </div>
-              </a>
-            </article>
-            <article class="d-none d-md-inline-block col-md-4 destacados">
-              <a href="#">
-              <div class="row">
-                <div class="articulo-fondo border">
-                  <div class="col-6 col-md-12 imagen">
-                    <img class="destacados" src="images/img-auxiliar.webp" alt="img-reloj">
-                  </div>
-                  <div class="col-6 col-md-12">
-                    <h4 class="home col-12 text-center">TOMMY</h4>
+
+            @forelse ($destacados as $destacado )
+              <article  class="d-none  p-2 col-md-4 destacados d-flex justify-content-center">
+                <div class="row d-flex justify-content-center">
+                  <div class="articulo-fondo border " style="padding: 10px;">
+                    <div class="col-6 col-md-12 imagen">
+                      <img class="destacados" src="{{ asset("/storage/relojes/$destacado->image") }}" alt="img-reloj">
+                    </div>
+                    <div class="col-6 col-md-12">
+                      <h4 class="home col-12 text-center">{{$destacado->brand}}</h4>
+                    </div>
+                    @if ($usuario)
+                      <div class="col-6 col-md-12">
+                        <a  href="/carrito/agregar/{{$destacado->id}}/{{$usuario->id}}" class="home col-12 d-flex justify-content-center btn btn-primary">Agregar a carrito</a>
+                      </div>
+                    @endif
+                  
                   </div>
                 </div>
-              </div>
-              </a>
-            </article>
-            <article class="d-none d-md-inline-block col-md-4 destacados">
-              <a href="#">
-              <div class="row">
-                <div class="articulo-fondo border">
-                  <div class="col-6 col-md-12 imagen">
-                    <img class="destacados" src="images/img-auxiliar2.webp" alt="img-reloj">
-                  </div>
-                  <div class="col-6 col-md-12">
-                    <h4 class="home col-12 text-center">BOSS</h4>
-                  </div>
-                </div>
-              </div>
-              </a>
-            </article>
+              </article>
+            @empty
+                <h2>No hay destacados</h2>
+            @endforelse
+
+
             <div class="col-12 d-flex justify-content-around destacados-celu d-md-none">
-              <a href="#"><div class="p-2 destacados"><p class="destacados-celu">TISSOT</p></div></a>
-              <a href="#"><div class="p-2 destacados"><p class="destacados-celu">TOMMY</p></div></a>
-              <a href="#"><div class="p-2 destacados"><p class="destacados-celu">BOSS</p></div></a>
+
+              @forelse ($destacados as $destacado )
+
+              <a href="#"><div class="p-2 destacados"><p class="destacados-celu"><img src="" alt=""></p></div></a>
+              @empty
+                <h2>No hay destacados</h2>
+              @endforelse
+
+            </div>
+            <div style="width: 100%; margin-top:30px;" class="conteiner-fluid text-center">
+              {{$destacados->links()}}
             </div>
           </div>
         </div>
       </section>
       <section class="row hombre-mujer">
-        <a class="col-6" href="#">
+        <a class="col-6" href="/reloj/hombres">
           <div class="row">
             <img class="col-12"src="images/hombre.jpg" alt="seccion de hombres">
           </div>
         </a>
-        <a class="col-6" href="#">
+        <a class="col-6" href="/reloj/mujeres">
           <div class="row">
             <img class="col-12"src="images/mujer.jpg" alt="seccion de mujeres">
           </div>
@@ -77,7 +76,7 @@
       <section class="row promociones">
         <div class="col-12 col-md-10 offset-md-1 promociones">
           <div class="row">
-            <h2 class="home col-12 text-center promociones"> promociones</h2>
+            <h2 class="home col-12 text-center promociones"> Proximos lanzamientos</h2>
             <div class="col-12 carrusel">
               <div class="bd-example">
                 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">

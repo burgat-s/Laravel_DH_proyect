@@ -19,7 +19,7 @@
 
     @forelse ($relojes as $reloj )
       <div class="card" style="width: 18rem;">
-        <img src="storage/relojes/{{$reloj->image}}" class="card-img-top" alt="...">
+        <img src="{{ asset("/storage/relojes/$reloj->image") }}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{$reloj->model}}</h5>
           <p class="card-text">{{$reloj->description}}</p>
@@ -32,7 +32,7 @@
           @endif
         </ul>
         <div class="card-body">
-          
+
           <a href="/carrito/agregar/{{$reloj->id}}/{{$usuario->id}}" class="card-link">Agrega al Carrito</a>
 
         </div>
