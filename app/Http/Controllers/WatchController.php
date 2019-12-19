@@ -185,4 +185,19 @@ class WatchController extends Controller
 
       return redirect("/listarProductos");
     }
+
+
+    public static function search($id)
+    {
+        $reloj = Watch::where('id','=',"$id")->get();
+
+
+      return $reloj;
+    }
+
+
+
+
+
+
 }

@@ -40,6 +40,10 @@ class User extends Authenticatable
     public function direcciones(){
       return $this->hasMany("App\Direction", "user_id");
     }
+    public function carro(){
+      return $this->hasMany("App\Cart", "user_id");
+    }
+
 
 
 

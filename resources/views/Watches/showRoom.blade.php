@@ -6,6 +6,11 @@
 
 
 @section('content')
+  @php
+  use App\User;
+
+  $usuario = Auth::user() ;
+  @endphp
 <div class="container relojes">
   <div class="col-2 filtros">
 
@@ -27,7 +32,8 @@
           @endif
         </ul>
         <div class="card-body">
-          <a href="{{$reloj->id}}" class="card-link">Agrega al Carrito</a>
+          
+          <a href="/carrito/agregar/{{$reloj->id}}/{{$usuario->id}}" class="card-link">Agrega al Carrito</a>
 
         </div>
       </div>

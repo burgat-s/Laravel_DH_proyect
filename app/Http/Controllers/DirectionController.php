@@ -47,6 +47,8 @@ class DirectionController extends Controller
           ]);
 
           $newDirection = new Direction;
+
+    
           $newDirection->provincia = $request->provincia;
           $newDirection->localidad = $request->localidad;
           $newDirection->barrio = $request->barrio;

@@ -20,9 +20,10 @@ Route::get('/preguntas_frecuentes', function () {
     return view('static.faq');
 });
 
-Route::get('/carro', function () {
-    return view('Carts.carro');
- });
+Route::get('/carro','CartController@show' );
+Route::get('/carro/removerItem/{algo}','CartController@borraritem' );
+
+
 
 Auth::routes();
 
@@ -52,3 +53,6 @@ Route::get('/direccion/create', 'DirectionController@create');
 Route::post('/direccion/create', 'DirectionController@store');
 
 Route::get('/direccion/destroy/{algo}', 'DirectionController@destroy');
+
+
+Route::get('/carrito/agregar/{algo}/{algo2}', 'CartController@store');
