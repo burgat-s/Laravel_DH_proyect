@@ -31,11 +31,11 @@
             <li class="list-group-item">{{$reloj->discount}}% OFF!</li>
           @endif
         </ul>
-        <div class="card-body">
-
-          <a href="/carrito/agregar/{{$reloj->id}}/{{$usuario->id}}" class="card-link">Agrega al Carrito</a>
-
-        </div>
+        @if ($usuario)
+          <div class="col-6 col-md-12">
+            <a  href="/carrito/agregar/{{$reloj->id}}/{{$usuario->id}}" class="home col-12 d-flex justify-content-center btn btn-primary">Agregar a carrito</a>
+          </div>
+        @endif
       </div>
 
     @empty

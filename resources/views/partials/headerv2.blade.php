@@ -1,44 +1,32 @@
-
+@php
+use App\User;
+$usuario = Auth::user() ;
+@endphp
 <header>
-  @php
-  use App\User;
-
-  $usuario = Auth::user() ;
-
-  @endphp
-
     <div class="row header container-fluid">
-      <div class="d-none d-md-inline-block col-md-2 logo">
-        <a href="/home" class="logo">  <img id="logo" src="/images/logo-sin-fondo.png" alt=""></a>
-      </div>
-      <div class="col-6">
-        <h1 class="titulo"> Relojes DTS</h1>
-      </div>
-      <div class="row col-4 media-header">
-        <div class="d-none d-md-inline-block col-md-12">
-          <h2 style="text-transform: capitalize" class="usuario"> @if (Route::has('login')) @auth Bienvenido  {{$usuario->name}} !!   <a href="/logout"> Desloguarse </a><img style=" height:50px; " src="/storage/{{$usuario->avatar }}" alt="avatar"> @else  Esta navegando como invitado!! @endauth  @endif </h2>
-          @if (Route::has('login')) @auth @else
-            <h2  class="usuario">  <a href="{{ route('login') }}"> Logueate! </a> </h2>
-          @endauth  @endif
+      <div class="col-12 nuevo-header " style="width:100%; padding:5px !important">
+        <div class="" style="display:inline-block; float:left">
+          <a href="/home" class="">  <img style="padding: 10px;margin:3px; width:200px" src="/images/clock-logo-b.png" alt=""></a>
         </div>
-        <div class=" col-md-12 naver text-right titulo">
-          <nav>
-            @if (Route::has('login')) @auth
-              <a  @if (Route::has('login')) @auth href="/usuario"  @else  href="{{ route('login') }}" @endauth  @endif> <img href="#" src="/images/usuario.png" alt="USER"></a>
-              <a href="/carro"> <img href="#" src="/images/carrito.png" alt="CART"></a>
-              <a href="/relojes"> <img href="#" src="/images/buscar.png" alt="SERCH"></a>
+
+        <div class=""style="display:inline-block; float:Right ; color:white">
+          <nav class="nitro">
+            <ul >
+
+              <li id="navlink"> <a  href="/relojes" ><img href="#" src="/images/buscar.png" alt="SERCH"><p> Buscar </p></a>  </li>
+              @if (Route::has('login')) @auth
+              <li id="navlink"> <a  href="/carro" ><img href="#" src="/images/carrito.png" alt="CART"><p> Carrito </p></a>  </li>
+              <li id="navlink"> <a  href="/usuario" ><img href="#" src="/images/usuario.png" alt="USER"> <p> Mi Cuenta </p></a>  </li>
               @if ($usuario->user_tipe==1)
-                <a href="/altaProductos"> <img href="#" src="/images/up.png" alt="SERCH"></a>
-                {{-- <a href="/editarProductos"> <img href="#" src="/images/editar.png" alt="SERCH"></a> --}}
-                <a href="/listarProductos"> <img style="Display: inline-block;" href="#" src="/images/editar.png" alt="SERCH"> </a>
+              <li id="navlink"> <a  href="/listarProductos" ><img style="Display: inline-block;" href="#" src="/images/editar.png" alt="SERCH"><p> Administrador </p></a>  </li>
               @endif
+              <li id="navlink"> <a  href="/logout" ><p> Logout </p></a>  </li>
+              @else
+              <li id="navlink"> <a  href="{{ route('login') }}" ><p> Login </p></a>  </li>
+              @endauth  @endif
 
-            @endauth  @endif
-
+            </ul>
           </nav>
         </div>
-
-
       </div>
-    </div>
 </header>

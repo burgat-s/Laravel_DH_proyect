@@ -16,7 +16,8 @@
 
             <div class="col-md-4 col-sm-6 col-xs-12">
               <a href="/home">
-                <img class="logo" src="{{ asset('images/logo-sin-fondo.png') }}" style="width:250px;" alt="logo">
+                <img src="{{ asset('images/clock-logo-b.png') }}" style="padding: 10px;margin:3px; width:250px" alt="logo">
+                {{-- <img style="padding: 10px;margin:3px; width:200px" src="/images/clock-logo-b.png" alt=""> --}}
               </a>
             </div>
 
@@ -52,24 +53,3 @@
        </div>
     </div>
 </footer>
-
-<div class="tt-copy">
-  <div class="container">
-    <div class="row">
-
-      <div class="col-sm-6">
-        <div class="tt-copy-left">
-          Copyright � company 2019. All rights reserved.
-        </div>
-      </div>
-
-      <div class="col-sm-6">
-        <div class="tt-copy-right">
-          Created by: DTS
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-{{-- @endsection --}}

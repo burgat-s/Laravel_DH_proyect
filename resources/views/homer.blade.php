@@ -3,7 +3,7 @@
 @extends('layouts.app')
 
 @section('titulo')
- Relojes DTS
+ Clock
 @endsection
 
 @section('content')
@@ -18,25 +18,31 @@
 
       <section class="row destacados">
         <div class="col-12 col-md-10 offset-md-1 destacados">
-          <div class="row d-flex flex-row justify-content-center">
-            <h2 class="home col-12 text-center destacados">destacados</h2>
+          <div class="row justify-content-center ">
+            <h2 class="home col-12 text-center ">destacados</h2>
 
             @forelse ($destacados as $destacado )
-              <article  class="d-none  p-2 col-md-4 destacados d-flex justify-content-center">
-                <div class="row d-flex justify-content-center">
-                  <div class="articulo-fondo border " style="padding: 10px;">
+              <article  class="d-none p-2 col-md-4 destacados d-flex ">
+                <div class="row d-flex">
+                  <div class="col-8 articulo-fondo row" >
                     <div class="col-6 col-md-12 imagen">
                       <img class="destacados" src="{{ asset("/storage/relojes/$destacado->image") }}" alt="img-reloj">
                     </div>
                     <div class="col-6 col-md-12">
-                      <h4 class="home col-12 text-center">{{$destacado->brand}}</h4>
+                      <h4 class="home col-12 text-center font-weight-bold">{{$destacado->brand}}</h4>
+                    </div>
+                    <div class="col-6 col-md-12">
+                      <p class="home col-12 text-center font-weight-bold">{{$destacado->model}}</p>
+                    </div>
+                    <div class="col-6 col-md-12">
+                      <p class="home col-12 text-center">${{$destacado->price}}</p>
                     </div>
                     @if ($usuario)
-                      <div class="col-6 col-md-12">
-                        <a  href="/carrito/agregar/{{$destacado->id}}/{{$usuario->id}}" class="home col-12 d-flex justify-content-center btn btn-primary">Agregar a carrito</a>
+                      <div class="col-6 col-md-12 agregar-carrito font-weight-bold">
+                        <a  href="/carrito/agregar/{{$destacado->id}}/{{$usuario->id}}" class=" col-12 btn btn-primary">Agregar a carrito</a>
                       </div>
                     @endif
-                  
+
                   </div>
                 </div>
               </article>

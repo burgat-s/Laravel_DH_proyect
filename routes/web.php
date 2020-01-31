@@ -33,8 +33,8 @@ Route::get('/editarProductos/{algo}', 'Watchcontroller@edit')->middleware("valid
 Route::post('/editarProductos/{algo}', 'Watchcontroller@update')->middleware("userlog");
 
 Route::get('/listarProductos', 'Watchcontroller@index')->middleware("validaradmin");
-Route::get('/reloj/mujeres', 'Watchcontroller@mujeres')->middleware("validaradmin");
-Route::get('/reloj/hombres', 'Watchcontroller@hombres')->middleware("validaradmin");
+Route::get('/reloj/mujeres', 'Watchcontroller@mujeres');
+Route::get('/reloj/hombres', 'Watchcontroller@hombres');
 Route::get('/eliminarProductos/{algo}', 'Watchcontroller@destroy')->middleware("validaradmin");
 
 Route::get('/usuario', 'UserController@view');
